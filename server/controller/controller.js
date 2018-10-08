@@ -1,3 +1,20 @@
+/**
+ * The controller is responsible for holding all the functionality and protocol
+ * of what to do when a request hits any given endpoint that this app is
+ * listening for.  I have broken it up from top to bottom as:
+ * 
+ *  Data:
+ *      trainerLists and prototype for object creation
+ *  REST:
+ *      GET
+ *      POST
+ *      PUT / PATCH
+ *      DELETE
+ */
+
+
+
+ /* ========    DATA / PROTOTYPES ========= */
 const trainerList = [];
 
 const trainerPrototype = {
@@ -61,6 +78,12 @@ createPokemonObj = (pokeObj) => {
     }
 }
 
+
+
+/* ========    REST     ========= */
+
+
+
 /**
  * Return the trainer object with the given id param.
  * @param {Request} req The client request obj
@@ -84,6 +107,7 @@ const getTrainer = (req, res) => {
  * @param {Response} res The server response obj
  */
 const addTrainer = (req, res) => {
+    console.log(req.body);
     const trainer = createTrainerObj(req.body); // doTheyCuddleBoolean for Christian
     if (!trainer) {
         res.status(401).send("Bad Request Data");
@@ -119,6 +143,30 @@ const updateTrainer = (req, res) => {
 }
 
 /**
+ * Given the paramater 'ID', remove the trainer with that id
+ * from the trainerList array and return the updated list.
+ * @param {Request} req The client request object
+ * @param {Response} res The response object to the client
+ */
+const removeTrainer= (req,res) => {
+    const reqId = parseInt(req.params.id);
+    const index = findTrainerById(reqId);
+    const trainer = trainerList[index];
+    if (trainer) {
+        if (!trainer.gymLeader) {
+            trainerList.splice(index,1);
+            res.json(trainerList);
+        }
+        else {
+            res.status(403).json(trainerList);
+        }
+    } else {
+        res.status(404).send(`Trainer with id: ${reqId} not found.  Try again`);
+    }
+}
+
+
+/**
  * Given the paramater 'ID', update the trainer with that id
  * to append the new pokemon information to their pokemon list.
  * If list length is 6, no new pokemon can be added.
@@ -148,24 +196,14 @@ const addToTrainerPokemonList = (req,res) => {
     }
 }
 
-
-const removeTrainer= (req,res) => {
-    const reqId = parseInt(req.params.id);
-    const index = findTrainerById(reqId);
-    const trainer = trainerList[index];
-    if (trainer) {
-        if (!trainer.gymLeader) {
-            trainerList.splice(index,1);
-            res.json(trainerList);
-        }
-        else {
-            res.status(403).json(trainerList);
-        }
-    } else {
-        res.status(404).send(`Trainer with id: ${reqId} not found.  Try again`);
-    }
-}
-
+/**
+ * Given the paramater 'ID', and the query "INDEX",
+ * find the trainer with id and remove the pokemon at
+ * index from that trainer's pokemon list.
+ * 
+ * @param {Request} req The client request object
+ * @param {Response} res The response object to the client
+ */
 const removeFromTrainerPokemonList = (req,res) => {
     let { id } = req.params;
     let { index } = (req.query);
@@ -190,9 +228,6 @@ const removeFromTrainerPokemonList = (req,res) => {
     arr.splice(index,1);
     res.json(trainerList[trainerIndex]);
 }
-
-
-
 
 
 /*

@@ -3,6 +3,7 @@ import Stat from './stat';
 import Type from './type';
 import '../style/pokemon.css';
 
+// Pokemon type color codes
 const colorsByType = {
     bug: '#A8B820',
     dark: '#705848',
@@ -24,14 +25,17 @@ const colorsByType = {
     water: '#6890F0',
 }
 
+/** 
+ * Returns color code given a type
+ */
 function getStyle(type) {   
     return (type) ? {'backgroundColor': colorsByType[type.name]} : {}      
 }
 
 function Pokemon(props) {
     const { id, name, desc, weight, height, img, types, stats } = props;
-    const statList = stats.map((s,i) => <Stat {...s} key={i} index={i}/>).reverse();
-    const style = (types[1]) ? getStyle(types[1].type) : (types[0]) ? getStyle(types[0].type) : {};
+    const statList = stats.map((s,i) => <Stat {...s} key={i} index={i}/>).reverse(); // they are recieved in reverse order
+    const style = (types[1]) ? getStyle(types[1].type) : (types[0]) ? getStyle(types[0].type) : {}; // get style for name div
     
     return (
         <div className="pokemon">

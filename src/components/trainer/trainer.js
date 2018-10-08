@@ -4,7 +4,7 @@ import '../style/trainer.css';
 
 function Trainer(props) { 
     if (props.display === 'long') {
-        // -----------------    Render the LONG info for the trainer in TrainerList -------------- //
+        // -----------------    Render the LONG info for the trainer in Selected Trainer Tab -------------- //
 
         if (!props.name) {
             return <div className="trainer">No Trainer Selected</div>
@@ -42,8 +42,6 @@ function Trainer(props) {
     } else {
         // -----------------    Render the SHORT info for the trainer in TrainerList -------------- //
         
-        // const gymBadges = props.badges.map((badge,i) => <div key={i}>{badge}</div>);
-
         return (
             <div className="trainer" onClick={e => props.selectTrainer(props.index)}>
                 <div className="portrait"><img src={props.img || defaultImage} alt="trainer portrait"/></div>

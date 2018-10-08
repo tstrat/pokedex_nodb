@@ -1,5 +1,10 @@
-import React, { Component } from "react"
+import React from "react"
 
+/**
+ * Displays a Type div, giving it colored styling based on the codes in
+ * parent.
+ * @param {} props 
+ */
 function Type (props){
     const style = props.type  && props.style(props.type);
     const type = (props.type ) ? props.type.name : 'Glitch';

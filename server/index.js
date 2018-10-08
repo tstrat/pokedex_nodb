@@ -8,11 +8,11 @@ app.use(bodyParser.json());
 const baseURL = '/api/v1';
 
 // All the trainers
-app.get(baseURL + '/trainers', controller.getTrainerList);
+app.get(baseURL + '/trainers', controller.getTrainerList);  
 app.post(baseURL + '/trainers', controller.addTrainer);
 
 // Single Trainer
-app.get(baseURL + '/trainers/:id', controller.getTrainer);
+app.get(baseURL + '/trainers/:id', controller.getTrainer);  // has query option as well
 app.put(baseURL + '/trainers/:id', controller.updateTrainer);
 app.patch(baseURL + '/trainers/:id', controller.updateTrainer);
 app.delete(baseURL + '/trainers/:id', controller.removeTrainer);

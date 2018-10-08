@@ -17,29 +17,34 @@ constructor() {
     }
 
     setMissingNo() {
-        this.setState(missingNo);
+        this.setState(missingNo);  // default for error in finding a pokemon.
     }
 
     nextPokemon() {
         ((this.state.id + 1) < 802) ?
-        this.fetchPokemon(this.state.id+1) :
-        this.setMissingNo();
+            this.fetchPokemon(this.state.id+1) 
+            :
+            this.setMissingNo();  // id cant be higher than 802 (last pokemon as of 2018)
     }
 
     prevPokemon() {
         ((this.state.id - 1) > 0) ?
-        this.fetchPokemon(this.state.id-1) :
-        this.setMissingNo();
+            this.fetchPokemon(this.state.id-1) 
+            :
+            this.setMissingNo();  // id cant be 0 or less
     }
 
     fetchPokemon(path) {
+
         const species = this.speciesUrl + path + '/';
         const pokemon = this.pokemonUrl + path + '/';
+        
         axios.get(species)
         .then(species_res => {
             const { flavor_text_entries, genera, name, id } = species_res.data;
             const genus = genera.filter(g => g.language.name === 'en' )[0].genus;
             const flavorText = flavor_text_entries.filter(ft => ft.language.name === 'en')[0].flavor_text;
+            
             // get other stat info
             axios.get(pokemon)
             .then(poke_res => {
@@ -57,13 +62,16 @@ constructor() {
                 })
             })         
         }).catch(e => {
-            console.log(e);
+            // Catches ALL of it.
+            console.error(e);
             this.setMissingNo();
         });
     }
 
-    updateInput = (e) => { this.setState({ input: e.target.value })};
-
+    /**
+     * Creates a basic pokemon object out of the more complex one in the dex state
+     * then passes it up to App to send out to Trainer list.
+     */
     addPokemon = () => {
         const pokemon = {
             name: this.state.name,
@@ -72,9 +80,12 @@ constructor() {
         }
         this.props.addPokemon(pokemon);
     }
+
     componentDidMount() {
-        this.fetchPokemon(1);
+        this.fetchPokemon(1); // start on bulbasaur for sanity
     }
+
+    updateInput = (e) => { this.setState({ input: e.target.value })};  // control the input
 
     render() {
         const { id, name, desc, weight, height, img, types, stats } = this.state;
@@ -82,7 +93,6 @@ constructor() {
             <div className="pokedex">
                 <div className="controls">
                     
-                    {/* <button onClick={() => this.prevPokemon()}>Previous</button> */}
                         <div>
                         <i className="prev fas fa-caret-square-left" onClick={() => this.prevPokemon()}></i>
                         <input 
@@ -95,7 +105,6 @@ constructor() {
                         <i className="next fas fa-caret-square-right" onClick={()=> this.nextPokemon()}></i>
                         </div>
                     
-                    {/* <button onClick={()=> this.nextPokemon()}>Next</button> */}
                 </div>
                 {/* Display entry if ID >0 and < 803 */}
                 <Pokemon id={id}
@@ -106,6 +115,7 @@ constructor() {
                     img={img}
                     types={types}
                     stats={stats} />
+                {/* Adds pokemon to app.js selected trainer */}    
                 <button onClick={this.addPokemon}>Add To Team</button>
             </div>
             

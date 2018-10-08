@@ -2,6 +2,7 @@ body{
     font-family: "Helvetica Neue",Helvetica,Arial,Verdana,"Trebuchet MS";
     background-image: url('./media/blue_background.jpg');
     background-repeat: no-repeat;
+    background-size:cover;
 }
 header{
     display:flex;

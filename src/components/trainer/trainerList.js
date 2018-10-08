@@ -24,6 +24,10 @@ class TrainerList extends Component {
         this.selectTrainer = this.selectTrainer.bind(this);
     }
 
+
+    /* =====  TRAINERS LIST TAB FUNCTIONS ===== */
+
+    //  Render Trainers tab data on mounting
     componentDidMount() {
         axios.get(this.baseUrl + '/')
         .then(res => {
@@ -33,18 +37,13 @@ class TrainerList extends Component {
         });
     }
 
-    hideAllTabs = () => {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("tab");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tabButton");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" activeBtn", "");
-        }
-    }
+    changeFilterVal = (e) => {this.setState({filterVal: e.target.value});}
 
+    /**
+     * Updates the state of parent @App.js to change selected trainer to the clicked
+     * div.  Also sets which tab is displayed to selectedTrainer
+     * @param id 
+     */
     selectTrainer(id) {
         this.props.update(this.state.trainers[id], () => {
             this.hideAllTabs();
@@ -52,15 +51,36 @@ class TrainerList extends Component {
             document.getElementById('selectedTrainerBtn').className += " activeBtn";
         });  
     }
+    
+    
+    /* =====  SELECTED TRAINER TAB FUNCTIONS ===== */
 
-    showTab = (evt, showTab) => {
-        this.hideAllTabs();
-        document.getElementById(showTab).style.display = "block";
-        evt.currentTarget.className += " activeBtn";
+    /**
+     * Removes the selected trainer from the list,
+     * then resets current selected to not have anything there.
+     */
+    removeTrainer = (id) => {
+        axios.delete(this.baseUrl+`/${id}`)
+        .then(res =>
+            this.setState({
+                trainers: res.data
+            }, () => this.selectTrainer(null))
+        );
     }
 
-    changeFilterVal = (e) => {this.setState({filterVal: e.target.value});}
-    
+    /**
+     * Ensures that the trainers list is re-updated after the selected trainer is edited
+     */
+    edit = () => {
+        this.props.edit();
+        this.componentDidMount();
+    }
+
+    /* =====  ADD TRAINER TAB FUNCTIONS ===== */
+
+    /**
+     * Updates the form.  Generic for universal use.
+     */
     updateForm = (key, val) => {
         const updateTrainer = {name:'', bio:'', img:'', badges:[]};
         for(const k in this.state.newTrainer) {
@@ -72,6 +92,9 @@ class TrainerList extends Component {
         })
     }
     
+    /**
+     * Clears the form data in Add Trainer
+     */
     clearFormInputs = () => {
         this.setState({
             newTrainer : {
@@ -83,6 +106,10 @@ class TrainerList extends Component {
         });
     }
 
+    /**
+     * Handles the axios request for adding a new trainer to the trainers list.
+     * Afterwords, resets form data.
+     */
     addTrainer = () => {
         axios.post(this.baseUrl + '/', this.state.newTrainer)
         .then(res => {
@@ -98,18 +125,26 @@ class TrainerList extends Component {
         });
     }
 
-    removeTrainer = (id) => {
-        axios.delete(this.baseUrl+`/${id}`)
-        .then(res =>
-            this.setState({
-                trainers: res.data
-            }, () => this.selectTrainer(null))
-        );
+    /* =======  DISPLAY TAB FUNCTIONALITY ========== */
+
+    /*  Hides the tabs that are not in use */
+    hideAllTabs = () => {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tabButton");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" activeBtn", "");
+        }
     }
 
-    edit = () => {
-        this.props.edit();
-        this.componentDidMount();
+    /* Activates a tab that IS in use */
+    showTab = (evt, showTab) => {
+        this.hideAllTabs();
+        document.getElementById(showTab).style.display = "block";
+        evt.currentTarget.className += " activeBtn";
     }
 
     render() {
@@ -176,7 +211,7 @@ class TrainerList extends Component {
                         edit={this.edit} />
                 </div>
 
-                {/* Add Trainer */}
+                {/* Add Trainer Tab */}
                 <div className="tab" id ="addTrainer">
                     <AddTrainer 
                         newTrainer={newTrainer} 

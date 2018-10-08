@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       selectedTrainer: {}
     }
-}
+  }
 
   updatedSelectedTrainer = (trainer, callback) => {
     if (!trainer){
@@ -63,18 +63,22 @@ class App extends Component {
     const selected = this.state.selectedTrainer;
     const updates = {}
     let name, bio, img;
+    
     name = prompt("Name to change to:", selected.name);
     if (name) {
       updates.name = name;
     }
+    
     bio = prompt("Bio to change to:", selected.bio);
     if (bio) {
       updates.bio = bio;
     }
+    
     img = prompt("Image URL to change to:", selected.img);
     if (img) {
       updates.img = img;
     }
+    
     axios.patch(this.baseUrl + `/${selected.id}`, updates)
     .then(res => {
       this.setState({
