@@ -107,7 +107,6 @@ const getTrainer = (req, res) => {
  * @param {Response} res The server response obj
  */
 const addTrainer = (req, res) => {
-    console.log(req.body);
     const trainer = createTrainerObj(req.body); // doTheyCuddleBoolean for Christian
     if (!trainer) {
         res.status(401).send("Bad Request Data");
