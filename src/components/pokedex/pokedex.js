@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import axios from 'axios';
-import './pokedex.css';
-import Pokemon from "./pokemon";
+import '../style/pokedex.css';
 
+import Pokemon from "./pokemon";
 import missingNo from '../../missingNo';
 
 class Pokedex extends Component {
@@ -64,24 +64,38 @@ constructor() {
 
     updateInput = (e) => { this.setState({ input: e.target.value })};
 
+    addPokemon = () => {
+        const pokemon = {
+            name: this.state.name,
+            id: this.state.id,
+            img: this.state.img
+        }
+        this.props.addPokemon(pokemon);
+    }
     componentDidMount() {
         this.fetchPokemon(1);
     }
 
     render() {
-        console.log(this.input);
         const { id, name, desc, weight, height, img, types, stats } = this.state;
         return (
             <div className="pokedex">
-                <div className="pokedexControlls">
-                    <button onClick={() => this.prevPokemon()}>Previous</button>
+                <div className="controls">
+                    
+                    {/* <button onClick={() => this.prevPokemon()}>Previous</button> */}
+                        <div>
+                        <i className="prev fas fa-caret-square-left" onClick={() => this.prevPokemon()}></i>
                         <input 
                             onChange={ this.updateInput } 
                             value={this.state.input} 
-                            placeholder="Search by pokemon name or number"
+                            placeholder="Search for pokemon..."
                             onKeyPress={e => {if(e.key === 'Enter') this.fetchPokemon(e.target.value.toLowerCase())}} 
                         />
-                    <button onClick={()=> this.nextPokemon()}>Next</button>
+                        <i className="search fas fa-search"></i>
+                        <i className="next fas fa-caret-square-right" onClick={()=> this.nextPokemon()}></i>
+                        </div>
+                    
+                    {/* <button onClick={()=> this.nextPokemon()}>Next</button> */}
                 </div>
                 {/* Display entry if ID >0 and < 803 */}
                 <Pokemon id={id}
@@ -92,8 +106,9 @@ constructor() {
                     img={img}
                     types={types}
                     stats={stats} />
-
+                <button onClick={this.addPokemon}>Add To Team</button>
             </div>
+            
     )}
 }
 

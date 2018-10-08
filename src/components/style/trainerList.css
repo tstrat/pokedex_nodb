@@ -1,0 +1,51 @@
+.trainerList {
+    width:400px;
+    margin:2%;
+    max-height:750px;
+    overflow:scroll;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.678);
+}
+
+.trainerList .controls {
+    width:100%;
+    height:45px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.trainerList .controls button{
+    width:100%;
+    height: 100%;
+    outline:0;
+    margin:0;
+}
+.trainerList .controls button:hover{
+    background: rgb(187, 187, 187);
+    color: black;
+}
+
+.trainerList .controls .activeBtn {
+    background: black;
+    color:white;
+}
+
+#selectedTrainer, #addTrainer {
+    display:none;
+}
+
+.tab{
+    border: 1px solid black;
+}
+
+#trainerContainer {
+    background: rgba(187, 187, 187, 0.733);
+}
+
+#trainerContainer input {
+    margin:1%;
+    width:98%;
+    height: 25px;
+}
+
+

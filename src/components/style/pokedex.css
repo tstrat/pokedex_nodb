@@ -1,0 +1,76 @@
+/* Main div for Pokedex is .pokedex */
+
+.pokedex {
+    padding:2%;
+    margin: 2%;
+    width:400px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* Custom color gradient to mimic pokedex color */
+    background: rgba(246,4,60,1);
+    background: -moz-linear-gradient(-45deg, rgba(246,4,60,1) 0%, rgba(201,3,49,1) 39%, rgba(153,0,36,1) 90%, rgba(153,0,36,1) 97%, rgba(153,0,36,0.8) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(246,4,60,1) 0%, rgba(201,3,49,1) 39%, rgba(153,0,36,1) 90%, rgba(153,0,36,1) 97%, rgba(153,0,36,0.8) 100%);
+    background: -o-linear-gradient(-45deg, rgba(246,4,60,1) 0%, rgba(201,3,49,1) 39%, rgba(153,0,36,1) 90%, rgba(153,0,36,1) 97%, rgba(153,0,36,0.8) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(246,4,60,1) 0%, rgba(201,3,49,1) 39%, rgba(153,0,36,1) 90%, rgba(153,0,36,1) 97%, rgba(153,0,36,0.8) 100%);
+    background: linear-gradient(135deg, rgba(246,4,60,1) 0%, rgba(201,3,49,1) 39%, rgba(153,0,36,1) 90%, rgba(153,0,36,1) 97%, rgba(153,0,36,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6043c', endColorstr='#990024', GradientType=1 );
+    border-radius:3%;
+
+    box-shadow:5px 5px rgba(75, 3, 3, 0.788);
+}
+
+.pokedex > .controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls div {
+    position: relative;
+    width:100%;
+    margin:5px;
+    padding:5px;
+}
+
+.controls div .search {
+    position: absolute;
+    top: 7px;
+    right: 35px;
+    color: gray;
+}
+
+.prev {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    color: rgb(34, 22, 201);
+    font-size:30px;
+}
+
+.next {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    color: rgb(34, 22, 201);
+    font-size:30px;
+}
+
+.controls div input {
+    width: 100%;
+    height:25px;
+    font-size:18px;
+    padding-left:30px;
+}
+
+.pokedex button {
+    border: none;
+    font-size:18px;
+    font-weight: 600;
+    box-shadow:0 5px 10px black;
+    text-shadow:2px 2px 30px black;
+    margin-top:2%;
+}

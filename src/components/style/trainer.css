@@ -1,0 +1,117 @@
+.trainer {
+    position: relative;
+    width:100%;
+    min-height:100px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cfcfcfc0;
+}
+
+.trainer > div {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.trainer i {
+    position: absolute;
+    top:7%;
+
+}
+
+.trainer .delete {
+    right:1%;
+    color:rgb(196, 10, 10);
+}
+
+.trainer .edit {
+    right:6%;
+    color:rgba(82, 82, 82, 0.753);;
+}
+
+.trainer i:hover {
+    cursor: pointer;
+}
+
+.trainer .trainerInfo {
+    min-height: 100%;
+    flex:4;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background:white;
+    padding:2%;
+}
+
+.trainerInfo > div {
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+    margin: 5px auto;
+}
+
+.portrait {
+    flex:1;
+    height:100%;
+    max-width: 96px;
+    min-width:25%;
+    border-radius:50%;
+    background-color: #797979f8;
+    
+}
+
+.portrait img {
+    max-height:96px;
+    max-width:96px;
+    
+}
+
+.trainerName { 
+    padding-bottom:5px;
+    border-bottom: 1px solid red;
+}
+
+.details > div, .badges > div {
+    width:100%;
+    text-align:center;
+}
+
+.pokelist {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    align-content: stretch;
+    text-align: center;
+    background-color: white;
+
+}
+
+.pokelist .index{
+    min-height: 96px;
+    width:96px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokelist img {
+    flex: 2;
+    background:rgba(170, 169, 169, 0.61);
+    border-radius: 50%;
+}
+
+.pokelist div:nth-child(3) {
+    flex:4;
+} 
+
+.pokelist i {
+    flex:2;
+    font-size:24px;
+    background: none;
+    color:red;
+}

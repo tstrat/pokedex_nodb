@@ -1,3 +1,46 @@
-.logo {
-    height: 50px;
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,Verdana,"Trebuchet MS";
+    background-image: url('./media/blue_background.jpg');
+    background-repeat: no-repeat;
+}
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size:32px;
+    text-shadow: 5px 5px 5px black;
+    color:white;
+}
+header img{
+
+    max-height: 200px;
+}
+.App {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+footer {
+    width: 100%;
+    background: rgba(39, 39, 90, 0.678);
+}
+
+footer article {
+    color: white;
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+    padding:15px;
+}
+
+footer article > p {
+    text-align: center;
+    margin: 20px;
+}
+
+footer article a {
+    color: orange;
 }

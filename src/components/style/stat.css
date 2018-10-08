@@ -1,0 +1,23 @@
+.stat {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 100%;
+    padding: 2%;
+}
+
+.stat > h3 {
+    width:29%;
+}
+
+.stat_total {
+    width: 60%;
+    height: 25px;
+    max-height: 25px;
+    background: rgba(180, 180, 180, 0.329);
+}
+
+.stat_base {
+    height:100%;
+    background: orange;
+}
