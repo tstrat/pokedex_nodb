@@ -51,7 +51,6 @@ class App extends Component {
 
   removePokemonFromSelected = (index) => {
     const { selectedTrainer } = this.state;
-    console.log('Current', selectedTrainer.id);
     axios.delete(this.baseUrl + `/${selectedTrainer.id}/pokemon/?index=${index}`)
     .then(res =>
       this.setState({

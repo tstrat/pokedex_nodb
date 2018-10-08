@@ -41,7 +41,8 @@ function Trainer(props) {
         )
     } else {
         // -----------------    Render the SHORT info for the trainer in TrainerList -------------- //
-        const gymBadges = props.badges.map((badge,i) => <div key={i}>{badge}</div>);
+        
+        // const gymBadges = props.badges.map((badge,i) => <div key={i}>{badge}</div>);
 
         return (
             <div className="trainer" onClick={e => props.selectTrainer(props.index)}>

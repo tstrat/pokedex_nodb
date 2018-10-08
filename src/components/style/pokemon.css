@@ -14,7 +14,8 @@
     font-size: 24px;
     font-weight: 350;
     padding: 5px 0;
-    text-shadow: 0 3px rgb(0, 0, 0);
+    text-shadow: 0 2px 5px rgb(0, 0, 0);
+    box-shadow: 0 0 5px black;
     color:white;
 }
 
@@ -50,14 +51,15 @@
 }
 
 .pokemon_type {
-    background: green;
     height:fit-content;
     padding: 3%;
     width: fit-content;
     color:white;
+    text-shadow: 0 0 5px black;
     font-family: monospace;
     text-align:center;
     margin: 2%;
+    box-shadow: 0 1px 5px black;
 }
 
 .pokemonDescription h3 {
@@ -65,4 +67,8 @@
 }
 .pokemonDescription > * {
     margin: 5% 0;
+}
+
+.pokemonStats {
+    padding-bottom:5%;
 }
