@@ -31,7 +31,7 @@
 
 .trainer .edit {
     right:6%;
-    color:rgba(82, 82, 82, 0.753);;
+    color:rgba(82, 82, 82, 0.753);
 }
 
 .trainer i:hover {
@@ -114,4 +114,8 @@
     font-size:24px;
     background: none;
     color:red;
+}
+
+.pokelist i:hover {
+    cursor: pointer;
 }

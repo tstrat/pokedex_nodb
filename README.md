@@ -23,10 +23,9 @@ pokeapi.co/api/v2/pokemon-species/:number
     ]
 
 pokeapi.co/api/v2/pokemon/:number 
-```
+```javascript
 {
     "name": "bulbasaur",
-    "order": 1,
     "species": {
         "name": "bulbasaur",
         "url": "https://pokeapi.co/api/v2/pokemon-species/1/"
@@ -93,5 +92,7 @@ pokeapi.co/api/v2/pokemon/:number
     "weight": 69
 }
 ```
+
+```Height``` and ```Weight``` are set in decimeters and decagrams respectively.  Need conversion of 10 to base meter and kg.
 
 

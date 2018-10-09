@@ -1,0 +1,68 @@
+.weather {
+    position:absolute;
+    left:0;
+    top:0;
+    background: white;
+    height: 20vh;
+    width: 20vw;
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display:none;
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 100%);
+}
+
+.weather > div {
+    height: 99%;
+    width:99%;
+    background-color:#191919;
+    color: white;
+
+}
+.weather div > * {
+    margin: 1%;
+    text-align:center;
+}
+
+.weather h1 {
+    width: 90%;
+    font-size: 24px;
+}
+
+.weather input {
+    width: 90%;
+    height: 50px;
+    font-size:24px;
+    text-align:center;
+}
+
+.weather button {
+    height: 30px;
+    width: 170px;
+}
+
+.weather .results h2 {
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 0 1px 0px black;
+}
+.weather .results h3 {
+    /* Chrome, Safari, Opera */
+  -webkit-animation: rainbow 3s infinite;
+  font-weight: 600;
+  text-shadow: 1px 1px 10px black;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow{
+    0%{color: orange;}	
+    10%{color: purple;}	
+      20%{color: red;}
+      40%{color: yellow;}
+      60%{color: green;}
+      100%{color: blue;}
+      100%{color: orange;}	
+  }

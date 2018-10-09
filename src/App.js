@@ -6,6 +6,7 @@ import './App.css';
 
 import Pokedex from './components/pokedex/pokedex';
 import TrainerList from './components/trainer/trainerList';
+import Weather from './components/weather/weather';
 
 import pokemonLogo from './media/pokemonLogo.png';
 
@@ -87,6 +88,11 @@ class App extends Component {
     })
   }
 
+  weatherToggle = (e) => {
+    const x = document.getElementsByClassName("weather");
+    x[0].style.display = (x[0].style.display === 'none') ? 'block' : 'none';
+  }
+
   render() {
     return (
       <div>
@@ -102,6 +108,8 @@ class App extends Component {
             removePokemon={this.removePokemonFromSelected}
             edit={this.editPrompt}/>
         </div>
+        <button className="weatherBtn" onClick={this.weatherToggle}></button>
+        <Weather />
         <footer>
           <article>
             <p>

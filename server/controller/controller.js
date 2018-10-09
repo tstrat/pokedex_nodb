@@ -42,6 +42,10 @@ function findTrainerById(trainerId) {
  * @param {Trainer} obj Potential new trainer object
  */
 function createTrainerObj(obj, currentTrainer) {
+    let ctPokemonList = [];
+    if (currentTrainer) {
+        ctPokemonList = currentTrainer.pokemon || [];
+    }
     currentTrainer = currentTrainer || trainerPrototype;
     
     const { name, id, pokemon, badges, gymLeader, bio, img } = obj;
@@ -52,7 +56,7 @@ function createTrainerObj(obj, currentTrainer) {
     const newObj = {
         name: name || currentTrainer.name,
         id: id || currentTrainer.id || uniqueId(),
-        pokemon: pokemon || [],
+        pokemon: pokemon || ctPokemonList,
         badges: badges || [],
         gymLeader: gymLeader || false,  // cant be a gym leader unless I say :P
         bio: bio || currentTrainer.bio,
