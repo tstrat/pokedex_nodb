@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "9b94f117-75d8-4c97-a12c-fb90e49a4af5",
+		"name": "Initial PokeApi NoDB start",
+		"description": "Sets up the api with test data for doing requests on.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Brock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Brock\",\n    \"id\": 1,\n    \"pokemon\": [\n    \t{\n    \t\t\"name\":\"Geodude\",\n    \t\t\"id\": 74,\n    \t\t\"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png\"\n    \t},\n    \t{\n    \t\t\"name\":\"Onix\",\n    \t\t\"id\": 95,\n    \t\t\"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png\"\n    \t}\n    ],\n    \"badges\": [\n    \t\"Boulder Badge\"\n    ],\n    \"gymLeader\": true,\n    \"bio\": \"Brock is an aspiring Pokémon Doctor from Pewter City and a former traveling partner of Ash. He is also the former Gym Leader of the Pewter Gym\",\n    \"img\": \"https://vignette.wikia.nocookie.net/pokemon/images/5/59/HGSS_Brock.png/revision/latest?cb=20160116130158\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/trainers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"trainers"
+					]
+				},
+				"description": "Posts a trainer named brock"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Misty",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Misty\",\n        \"id\": 2,\n        \"pokemon\": [\n            {\n                \"name\": \"Staryu\",\n                \"id\": 120,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png\"\n            },\n            {\n                \"name\": \"Starmie\",\n                \"id\": 121,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/121.png\"\n            }\n        ],\n        \"badges\": [\n            \"Cascade Badge\"\n        ],\n        \"gymLeader\": true,\n        \"bio\": \"Misty is a Gym Leader of Cerulean City's Gym, known officially as the Cerulean Gym. She gives the Cascade Badge to Trainers who defeat her in battle. She specializes in Water-type Pokémon.\",\n        \"img\": \"https://vignette.wikia.nocookie.net/nintendo/images/1/15/Misty_%28Pok%C3%A9mon_FireRed_and_LeafGreen%29.png/revision/latest?cb=20121111062138&path-prefix=en\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/trainers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"trainers"
+					]
+				},
+				"description": "Add Misty as a Gym Leader to the Database"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Lt.Surge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Lt. Surge\",\n        \"id\": 3,\n        \"pokemon\": [\n            {\n                \"name\": \"Voltorb\",\n                \"id\": 100,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png\"\n            },\n            {\n                \"name\": \"Pikachu\",\n                \"id\": 25,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png\"\n            },\n            {\n                \"name\": \"Raichu\",\n                \"id\": 26,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png\"\n            }\n        ],\n        \"badges\": [\n            \"Thunder Badge\"\n        ],\n        \"gymLeader\": true,\n        \"bio\": \"Lt. Surge is the Gym Leader of Vermilion City's Gym, known officially as the Vermilion Gym. He hands out the Thunder Badge to Trainers who defeat him. He specializes in Electric-type Pokémon.\",\n        \"img\": \"https://cdn.bulbagarden.net/upload/thumb/b/bc/Lets_Go_Pikachu_Eevee_Lt_Surge.png/250px-Lets_Go_Pikachu_Eevee_Lt_Surge.png\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/trainers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"trainers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Travis",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"Travis\",\n        \"id\": 4,\n        \"pokemon\": [\n            {\n                \"name\": \"Eevee\",\n                \"id\": 133,\n                \"img\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png\"\n            }\n        ],\n        \"badges\": [],\n        \"gymLeader\": false,\n        \"bio\": \"Travis's childhood dream is to become the greatest pokemon master of all time.  One day, he will open a gym where he only uses eevee and its eevolutions.\",\n        \"img\": \"https://forums.bulbagarden.net/data/avatars/l/77/77465.jpg?1450036450\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/v1/trainers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"trainers",
+						""
+					]
+				},
+				"description": "Posts Travis as a Trainer for the example"
+			},
+			"response": []
+		}
+	]
+}
