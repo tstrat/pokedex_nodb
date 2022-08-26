@@ -1,3 +1,6 @@
+## Author: 
+### Travis Stratton
+
 # No-Database Project
 <img src=https://s3.amazonaws.com/devmountain/www/img/dm_white_logo.png height="50px" />
 
