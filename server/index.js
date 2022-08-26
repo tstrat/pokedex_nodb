@@ -22,7 +22,7 @@ app.delete(baseURL + '/trainers/:id', controller.removeTrainer);
 app.post(baseURL + '/trainers/:id/pokemon', controller.addToTrainerPokemonList);
 app.delete(baseURL + '/trainers/:id/pokemon/', controller.removeFromTrainerPokemonList);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>{
     console.log(`Listening on port: ${PORT}`);
 });
